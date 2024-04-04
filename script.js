@@ -8,9 +8,9 @@ function foo(data1) {
 
     var row;
     for (var i = 0; i < data1.length; i++) {
-        if (i % 3 === 0) { // Start a new row every 3 cards
+        if (i % 3 === 0) { 
             row = document.createElement("div");
-            row.className = "row mb-4"; // Add margin-bottom to each row
+            row.className = "row mb-4"; 
         }
         var col = document.createElement("div");
         col.className = "col-md-4";
@@ -27,7 +27,7 @@ function foo(data1) {
           </div>`;
         row.append(col);
 
-        if ((i + 1) % 3 === 0 || i === data1.length - 1) { // Append row after every 3 cards or at the end of data
+        if ((i + 1) % 3 === 0 || i === data1.length - 1) { 
             container.append(row);
         }
     }
@@ -35,13 +35,4 @@ function foo(data1) {
     document.body.append(container);
 }
 
-function getWeather(countryName) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${countryName}&appid=YOUR_API_KEY`)
-        .then(response => response.json())
-        .then(weatherData => {
-            alert(`Weather in ${countryName}: ${weatherData.weather[0].description}`);
-        })
-        .catch(error => {
-            console.error('Error fetching weather data:', error);
-        });
-}
+
