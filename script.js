@@ -1,16 +1,22 @@
-fetch("https://restcountries.com/v3.1/all")
-    .then((data) => data.json())
-    .then((data1) => foo(data1));
+async function fetchDataAndDisplay() {
+    try {
+        const response = await fetch("https://restcountries.com/v3.1/all");
+        const data1 = await response.json();
+        foo(data1);
+    } catch (error) {
+        console.log("Error fetching data:", error);
+    }
+}
 
-function foo(data1) {
+async function foo(data1) {
     var container = document.createElement("div");
     container.className = "container";
 
     var row;
     for (var i = 0; i < data1.length; i++) {
-        if (i % 3 === 0) { 
+        if (i % 3 === 0) {
             row = document.createElement("div");
-            row.className = "row mb-4"; 
+            row.className = "row mb-4";
         }
         var col = document.createElement("div");
         col.className = "col-md-4";
@@ -27,7 +33,7 @@ function foo(data1) {
           </div>`;
         row.append(col);
 
-        if ((i + 1) % 3 === 0 || i === data1.length - 1) { 
+        if ((i + 1) % 3 === 0 || i === data1.length - 1) {
             container.append(row);
         }
     }
@@ -35,4 +41,4 @@ function foo(data1) {
     document.body.append(container);
 }
 
-
+fetchDataAndDisplay();
