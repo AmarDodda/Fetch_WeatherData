@@ -19,7 +19,7 @@ async function foo(data1) {
     data1.forEach(country => {
         const col = document.createElement("div");
         col.className = "col mb-4";
-        col.innerHTML = `<div clss="card border-primary h-100">
+        col.innerHTML = `<div class="card border-primary h-100">
             <div class="card-header">${country.name.common}</div>
             <div class="card-body text-primary d-flex flex-column">
                 <img src="${country.flags.svg}" class="img-fluid mb-2" style="max-height: 150px; width: auto;" alt="Flag">
